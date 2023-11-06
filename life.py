@@ -1,4 +1,4 @@
-ITEM = 'X'
+ALIVE = 'X'
 
 def get_status(matrix):
     matrix = '\n'.join([''.join(['{:4}'.format(item) for item in row]) 
@@ -12,7 +12,7 @@ def get_element_positions(matrix):
     positions = []
     for row in range(7):
         for col in range(7):
-            if ITEM == matrix[row][col]:
+            if ALIVE == matrix[row][col]:
                 positions.append([row,col])
     return positions
 
@@ -22,21 +22,21 @@ def update_matrix(matrix):
     for p in positions:
         count = 0
         row, col = [e for e in p]
-        if matrix[row-1][col-1] == ITEM:
+        if matrix[row-1][col-1] == ALIVE:
             count += 1
-        if matrix[row-1][col] == ITEM:
+        if matrix[row-1][col] == ALIVE:
             count += 1   
-        if matrix[row-1][col+1] == ITEM:
+        if matrix[row-1][col+1] == ALIVE:
             count += 1
-        if matrix[row][col+1] == ITEM:
+        if matrix[row][col+1] == ALIVE:
             count += 1
-        if matrix[row+1][col+1] == ITEM:
+        if matrix[row+1][col+1] == ALIVE:
             count += 1
-        if matrix[row+1][col] == ITEM:
+        if matrix[row+1][col] == ALIVE:
             count += 1
-        if matrix[row+1][col-1] == ITEM:
+        if matrix[row+1][col-1] == ALIVE:
             count += 1
-        if matrix[row][col-1] == ITEM:
+        if matrix[row][col-1] == ALIVE:
             count += 1
         if count < 2:
             dead_elements_position.append(p)
