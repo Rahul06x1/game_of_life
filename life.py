@@ -22,22 +22,30 @@ def update_matrix(matrix):
     for p in positions:
         count = 0
         row, col = [e for e in p]
-        if matrix[row-1][col-1] == ALIVE:
-            count += 1
-        if matrix[row-1][col] == ALIVE:
-            count += 1   
-        if matrix[row-1][col+1] == ALIVE:
-            count += 1
-        if matrix[row][col+1] == ALIVE:
-            count += 1
-        if matrix[row+1][col+1] == ALIVE:
-            count += 1
-        if matrix[row+1][col] == ALIVE:
-            count += 1
-        if matrix[row+1][col-1] == ALIVE:
-            count += 1
-        if matrix[row][col-1] == ALIVE:
-            count += 1
+        if row > 0:
+            if matrix[row-1][col] == ALIVE:
+                count += 1 
+            if col > 0:
+                if matrix[row-1][col-1] == ALIVE:
+                    count += 1
+            if col < 6:
+                if matrix[row-1][col+1] == ALIVE:
+                    count += 1
+        if row < 6:
+            if matrix[row+1][col] == ALIVE:
+                count += 1
+            if col < 6:
+                if matrix[row+1][col+1] == ALIVE:
+                    count += 1
+            if col > 0:
+                if matrix[row+1][col-1] == ALIVE:
+                    count += 1
+        if col > 0:
+            if matrix[row][col-1] == ALIVE:
+                count += 1
+        if col < 6:
+            if matrix[row][col+1] == ALIVE:
+                count += 1
         if count < 2:
             dead_elements_position.append(p)
     for elem in dead_elements_position:
