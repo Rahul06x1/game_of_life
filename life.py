@@ -6,12 +6,11 @@ def get_status(matrix):
     Press q for quit"""
     return status
 
-print(get_status([
-        ["O","O","O","O","O","O","O"],
-        ["O","O","O","O","O","O","O"],
-        ["O","O","O","O","O","O","O"],
-        ["O","O","X","X","X","O","O"],
-        ["O","O","O","O","O","O","O"],
-        ["O","O","O","O","O","O","O"],
-        ["O","O","O","O","O","O","O"]
-    ]))
+def get_element_positions(matrix):
+    item = 'X'
+    positions = []
+    for row in range(7):
+        for col in range(7):
+            if item == matrix[row][col]:
+                positions.append([row,col])
+    return positions
