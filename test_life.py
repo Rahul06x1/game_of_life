@@ -52,3 +52,25 @@ def test_update_matrix_less_than_two_alive_neighbors():
         ['O', 'O', 'O', 'O', 'O', 'O', 'O']
         ]
     assert update_matrix(matrix) == expected_matrix
+
+def test_update_matrix_alive_cell_in_sides():
+    matrix = [
+        ["X","O","O","X","O","O","X"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["X","O","O","O","O","O","X"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["X","O","O","X","O","O","X"]
+    ]
+    expected_matrix = [
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"]
+    ]
+
+    assert update_matrix(matrix) == expected_matrix
