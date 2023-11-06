@@ -54,7 +54,7 @@ def get_neighbor_cell_positions(position, matrix, status):
             if count < 2 or count > 3:
                 cell_positions.append(p)
         if status == DEAD:
-            if count > 2:
+            if count == 3:
                 cell_positions.append(p)
     return cell_positions
 
@@ -70,10 +70,10 @@ def update_matrix(matrix):
     )
     for elem in kill_alive_cell_positions:
         row, col = [e for e in elem]
-        matrix[row][col] = "O"
+        matrix[row][col] = DEAD
     for elem in revive_dead_cell_positions:
         row, col = [e for e in elem]
-        matrix[row][col] = "X"
+        matrix[row][col] = ALIVE
     return matrix
 
 
