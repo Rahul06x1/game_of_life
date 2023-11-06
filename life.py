@@ -19,6 +19,8 @@ def get_cell_positions(matrix,status):
 
 def update_matrix(matrix):
     kill_alive_cell_positions = []
+    revive_dead_cell_positions = []
+    dead_cell_positions = get_cell_positions(matrix, DEAD)
     alive_cell_positions = get_cell_positions(matrix, ALIVE)
     for p in alive_cell_positions:
         count = 0
@@ -49,9 +51,42 @@ def update_matrix(matrix):
                 count += 1
         if count < 2 or count > 3:
             kill_alive_cell_positions.append(p)
+    for p in dead_cell_positions:
+        count = 0
+        row, col = [e for e in p]
+        if row > 0 and col > 0:
+            if matrix[row-1][col-1] == ALIVE:
+                count += 1
+        if row > 0:
+            if matrix[row-1][col] == ALIVE:
+                count += 1   
+        if row > 0 and col < 6:
+            if matrix[row-1][col+1] == ALIVE:
+                count += 1
+        if col < 6:
+            if matrix[row][col+1] == ALIVE:
+                count += 1
+        if row < 6 and col < 6:
+            if matrix[row+1][col+1] == ALIVE:
+                count += 1
+        if row < 6:
+            if matrix[row+1][col] == ALIVE:
+                count += 1
+        if row < 6 and col > 0:
+            if matrix[row+1][col-1] == ALIVE:
+                count += 1
+        if col > 0:
+            if matrix[row][col-1] == ALIVE:
+                count += 1
+        if count > 2:
+            revive_dead_cell_positions.append(p)
+
     for elem in kill_alive_cell_positions:
         row, col = [e for e in elem]
         matrix[row][col] = 'O'
+    for elem in revive_dead_cell_positions:
+        row, col = [e for e in elem]
+        matrix[row][col] = 'X'
     return matrix
 
 def main():
