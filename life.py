@@ -5,7 +5,7 @@ def get_status(matrix):
     matrix = '\n'.join([''.join(['{:4}'.format(item) for item in row]) 
       for row in matrix])
     status = f"""{matrix}
-    Press space for next
+    Press any key for next
     Press q for quit"""
     return status
 
@@ -53,4 +53,25 @@ def update_matrix(matrix):
         row, col = [e for e in elem]
         matrix[row][col] = 'O'
     return matrix
+
+def main():
+    matrix = [
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","X","X","X","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"]
+    ]
+    print(get_status(matrix))
+    while True:
+        choice = input()
+        if choice in ['q','Q']:
+            break
+        matrix = update_matrix(matrix)
+        print(get_status(matrix))
+
+if __name__ == '__main__':
+    main()
         
