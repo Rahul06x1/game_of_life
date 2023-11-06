@@ -96,3 +96,17 @@ def test_update_matrix_more_than_three_alive_neighbors():
     ]
     matrix = update_matrix(matrix)
     assert matrix[3][3] == DEAD
+
+def test_update_matrix_revive_dead_cell_having_three_alive_neighbors():
+    matrix = [
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","0","O","O"],
+        ["O","O","X","X","X","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"],
+        ["O","O","O","O","O","O","O"]
+    ]
+    matrix = update_matrix(matrix)
+    assert matrix[2][3] == ALIVE
+    assert matrix[2][3] == ALIVE
