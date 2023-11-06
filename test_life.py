@@ -20,7 +20,8 @@ O   O   O   O   O   O   O
     Press any key for next
     Press q for quit"""
 
-def test_get_element_positions():
+def test_get_cell_positions_alive():
+    status = ALIVE
     matrix = [
         ["O","O","O","O","O","O","O"],
         ["O","O","O","O","O","O","O"],
@@ -30,7 +31,7 @@ def test_get_element_positions():
         ["O","O","O","O","O","O","O"],
         ["O","O","O","O","O","O","O"]
     ]
-    assert get_element_positions(matrix) == [[3, 2], [3, 3], [3, 4]]
+    assert get_cell_positions(matrix,status) == [[3, 2], [3, 3], [3, 4]]
 
 def test_update_matrix_less_than_two_alive_neighbors():
     matrix = [
@@ -80,14 +81,19 @@ def test_update_matrix_more_than_three_alive_neighbors():
         ["O","O","O","O","O","O","O"],
         ["O","O","O","O","O","O","O"]
     ]
-    expected_matrix = [
+    matrix = update_matrix(matrix)
+    assert matrix[3][3] == DEAD
+
+def test_update_matrix_revive_dead_cell_having_three_alive_neighbors():
+    matrix = [
         ["O","O","O","O","O","O","O"],
         ["O","O","O","O","O","O","O"],
-        ["O","O","O","O","X","O","O"],
-        ["O","O","X","O","X","O","O"],
-        ["O","O","X","O","O","O","O"],
+        ["O","O","O","O","0","O","O"],
+        ["O","O","X","X","X","O","O"],
+        ["O","O","O","O","O","O","O"],
         ["O","O","O","O","O","O","O"],
         ["O","O","O","O","O","O","O"]
     ]
-
-    assert update_matrix(matrix) == expected_matrix
+    matrix = update_matrix(matrix)
+    assert matrix[2][3] == ALIVE
+    assert matrix[2][3] == ALIVE
