@@ -1,4 +1,5 @@
 ALIVE = 'X'
+DEAD = 'O'
 
 def get_status(matrix):
     matrix = '\n'.join([''.join(['{:4}'.format(item) for item in row]) 
@@ -46,7 +47,7 @@ def update_matrix(matrix):
         if col < 6:
             if matrix[row][col+1] == ALIVE:
                 count += 1
-        if count < 2:
+        if count < 2 or count > 3:
             dead_elements_position.append(p)
     for elem in dead_elements_position:
         row, col = [e for e in elem]
