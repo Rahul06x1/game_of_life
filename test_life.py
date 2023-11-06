@@ -32,7 +32,7 @@ def test_get_element_positions():
     ]
     assert get_element_positions(matrix) == [[3, 2], [3, 3], [3, 4]]
 
-def test_update_matrix_less_than_two_neighbors():
+def test_update_matrix_less_than_two_alive_neighbors():
     matrix = [
         ["O","O","O","O","O","O","O"],
         ["O","O","O","X","O","O","O"],
