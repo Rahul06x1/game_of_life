@@ -1,9 +1,9 @@
 ALIVE = "■"
-DEAD = " "
+DEAD = ""
 
 
 def get_status(matrix):
-    matrix = "\n".join(
+    matrix = "\n\n".join(
         ["".join(["{:4}".format(item) for item in row]) for row in matrix]
     )
     status = f"""{matrix}

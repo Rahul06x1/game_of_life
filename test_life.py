@@ -2,15 +2,6 @@ from life import *
 
 
 def test_get_status():
-    # matrix = [
-    #     [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    #     [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    #     [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    #     [DEAD, DEAD, ALIVE, ALIVE, ALIVE, DEAD, DEAD],
-    #     [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    #     [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    #     [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    # ]
     matrix = [
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
@@ -23,11 +14,17 @@ def test_get_status():
     assert (
         get_status(matrix)
         == f"""{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
+
 {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
+
 {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
+
 {DEAD}   {DEAD}   {ALIVE}   {ALIVE}   {ALIVE}   {DEAD}   {DEAD}   
+
 {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
+
 {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
+
 {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
     Press any key for next
     Press q for quit"""
