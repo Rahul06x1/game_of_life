@@ -1,5 +1,5 @@
 ALIVE = "■"
-DEAD = ""
+DEAD = " "
 
 
 def get_status(matrix):
@@ -79,7 +79,7 @@ def update_matrix(matrix):
 
 def main():
     matrix = [
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, ALIVE, ALIVE, ALIVE],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, ALIVE, ALIVE, ALIVE, DEAD, DEAD],
