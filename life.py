@@ -1,5 +1,5 @@
 ALIVE = "■"
-DEAD = " "
+DEAD = "□"
 
 
 def get_status(matrix):
