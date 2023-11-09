@@ -1,4 +1,4 @@
-from life import *
+from life import update_matrix, toggle_cell_state, get_cell_positions, DEAD, ALIVE
 
 
 def test_get_cell_positions_alive():
