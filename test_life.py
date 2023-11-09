@@ -97,9 +97,10 @@ def test_update_matrix_revive_dead_cell_having_three_alive_neighbors():
     assert matrix[2][3] == ALIVE
     assert matrix[2][3] == ALIVE
 
+
 def test_toggle_cell_state_dead_to_alive():
     row = 0
-    col = 0 
+    col = 0
     matrix = [
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
@@ -120,9 +121,10 @@ def test_toggle_cell_state_dead_to_alive():
     ]
     assert toggle_cell_state(matrix, row, col) == expected_matrix
 
+
 def test_toggle_cell_state_alive_to_dead():
     row = 0
-    col = 0 
+    col = 0
     matrix = [
         [ALIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],

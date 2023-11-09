@@ -75,4 +75,3 @@ def update_matrix(matrix):
         row, col = [e for e in elem]
         matrix[row][col] = ALIVE
     return matrix
-
