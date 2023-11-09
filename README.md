@@ -11,4 +11,4 @@ A simple implementation of Conway's Game of Life using Python.
 
 ## Running the game
 
-The application is a very simple version of Conway's 'game of life'. To see what the game does, go to the game_of_life directory and run python3 game_of_life.py.
+The application is a very simple version of Conway's 'game of life'. To see what the game does, go to the game_of_life directory and run ```python3 game_of_life.py```.
