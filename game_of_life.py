@@ -18,13 +18,6 @@ def display_matrix(win, matrix):
     win.addstr(len(matrix) + 1, 0, message)
 
 
-def toggle_cell_state(matrix, row, col):
-    if matrix[row][col] == DEAD:
-        matrix[row][col] = ALIVE
-    elif matrix[row][col] == ALIVE:
-        matrix[row][col] = DEAD
-
-
 def main(stdscr):
     matrix = [[DEAD for _ in range(7)] for _ in range(7)]
     curses.curs_set(0)
@@ -50,7 +43,7 @@ def main(stdscr):
             _, mx, my, _, _ = curses.getmouse()
             row, col = my, mx // 2  # Convert mouse coordinates to matrix coordinates
             if 0 <= row < len(matrix) and 0 <= col < len(matrix[row]):
-                toggle_cell_state(matrix, row, col)
+                matrix = toggle_cell_state(matrix, row, col)
 
 
 if __name__ == '__main__':

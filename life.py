@@ -4,14 +4,12 @@ DISPLAY_ALIVE = "■"
 DISPLAY_DEAD = "□"
 
 
-def get_status(matrix):
-    matrix = "\n\n".join(
-        ["".join(["{:4}".format(item) for item in row]) for row in matrix]
-    )
-    status = f"""{matrix}
-    Press any key for next
-    Press q for quit"""
-    return status
+def toggle_cell_state(matrix, row, col):
+    if matrix[row][col] == DEAD:
+        matrix[row][col] = ALIVE
+    elif matrix[row][col] == ALIVE:
+        matrix[row][col] = DEAD
+    return matrix
 
 
 def get_cell_positions(matrix, status):
@@ -78,25 +76,3 @@ def update_matrix(matrix):
         matrix[row][col] = ALIVE
     return matrix
 
-
-def main():
-    matrix = [
-        [DEAD, DEAD, DEAD, DEAD, ALIVE, ALIVE, ALIVE],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, ALIVE, ALIVE, ALIVE, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    ]
-    print(get_status(matrix))
-    while True:
-        choice = input()
-        if choice in ["q", "Q"]:
-            break
-        matrix = update_matrix(matrix)
-        print(get_status(matrix))
-
-
-if __name__ == "__main__":
-    main()

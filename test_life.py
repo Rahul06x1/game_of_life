@@ -1,36 +1,6 @@
 from life import *
 
 
-def test_get_status():
-    matrix = [
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, ALIVE, ALIVE, ALIVE, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-    ]
-    assert (
-        get_status(matrix)
-        == f"""{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
-
-{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
-
-{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
-
-{DEAD}   {DEAD}   {ALIVE}   {ALIVE}   {ALIVE}   {DEAD}   {DEAD}   
-
-{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
-
-{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
-
-{DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   {DEAD}   
-    Press any key for next
-    Press q for quit"""
-    )
-
-
 def test_get_cell_positions_alive():
     status = ALIVE
     matrix = [
@@ -117,7 +87,7 @@ def test_update_matrix_revive_dead_cell_having_three_alive_neighbors():
     matrix = [
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
-        [DEAD, DEAD, DEAD, DEAD, "0", DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, ALIVE, ALIVE, ALIVE, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
@@ -127,11 +97,34 @@ def test_update_matrix_revive_dead_cell_having_three_alive_neighbors():
     assert matrix[2][3] == ALIVE
     assert matrix[2][3] == ALIVE
 
-def test_toggle_cell_state():
+def test_toggle_cell_state_dead_to_alive():
     row = 0
     col = 0 
     matrix = [
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+    ]
+    expected_matrix = [
+        [ALIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+        [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
+    ]
+    assert toggle_cell_state(matrix, row, col) == expected_matrix
+
+def test_toggle_cell_state_alive_to_dead():
+    row = 0
+    col = 0 
+    matrix = [
+        [ALIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
         [DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD],
