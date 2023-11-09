@@ -2,9 +2,6 @@ import curses
 from life import *
 
 
-DISPLAY_ALIVE = "■"
-DISPLAY_DEAD = "□"
-
 message = """Press ENTER to generate
 Press ESC to exit
 """
