@@ -1,6 +1,10 @@
 import curses
 from life import *
 
+
+DISPLAY_ALIVE = "■"
+DISPLAY_DEAD = "□"
+
 message = """Press ENTER to generate
 Press ESC to exit
 """
@@ -10,9 +14,9 @@ def display_matrix(win, matrix):
     for i, row in enumerate(matrix):
         for j, value in enumerate(row):
             if value == DEAD:
-                win.addch(i, j * 2, DEAD)  # Display dead cells
+                win.addch(i, j * 2, DISPLAY_DEAD)  # Display dead cells
             elif value == ALIVE:
-                win.addch(i, j * 2, ALIVE)  # Display alive cells
+                win.addch(i, j * 2, DISPLAY_ALIVE)  # Display alive cells
 
     win.addstr(len(matrix) + 1, 0, message)
 

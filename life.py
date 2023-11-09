@@ -1,5 +1,7 @@
-ALIVE = "■"
-DEAD = "□"
+# ALIVE = "■"
+# DEAD = "□"
+ALIVE = True
+DEAD = False
 
 
 def get_status(matrix):
